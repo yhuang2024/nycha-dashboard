@@ -1,54 +1,71 @@
 import pandas as pd
-#loading datast
-df = pd.read_csv("nycha.csv")
 
-#normalizing columns
-df.columns = (
-    df.columns
-    .str.strip()
-    .str.lower()
-    .str.replace(r"\s+", "_", regex=True)
-)
-df = df.loc[:, ~df.columns.duplicated()]
+# helper functions for cleaning
+def clean_columns(df):
+    df.columns = (
+        df.columns
+        .str.strip()
+        .str.lower()
+        .str.replace(r"\s+", "_", regex=True)
+    )
+    return df.loc[:, ~df.columns.duplicated()]
 
-#normalizing borough names and replacing invalid entries with "Unknown"
-df["borough"] = df["borough"].fillna("Unknown")
-df["borough"] = df["borough"].str.strip().str.title()
-df = df[~df["nycha_development"].isin(["UNKOWN", "SECTION 8*"])]
-
-#define columns expected to have numeric data
-numeric_cols = [
-    "total_number_of_resident_job_placements",
-    "average_wage_of_such_residents",
-    "total_number_of_resident_connections_to_services",
-    "total_number_of_residents_that_applied_for_the_nycha_resident_training_academy",
-    "total_number_of_residents_that_were_accepted_and_enrolled",
-    "total_number_residents_placed_into_full-time_or_part-time_jobs",
-    "average_wage_of_such_residents_1",
-    "number_of_residents_that_enrolled_in_financial_counseling_services/workshops_through_the_rees_zone_partner_program",
-    "total_number_of_residents_enrolled_in_vocational_training_programs_through_the_program",
-    "total_number_of_residents_enrolled_in_prep_courses_for_english_as_a_second_language_(esol)_or_the_test_assessing_secondary_completion_(tasc)_through_the_program"
-]
-#only keep columns that exist in the dataframe in case there are missing fields
-numeric_cols = [col for col in numeric_cols if col in df.columns]
-
-#clean numbers in numeric columns
-for col in numeric_cols:
+def standardize_dev(df, col):
     df[col] = (
         df[col]
+        .fillna("")
         .astype(str)
-        .str.replace(",", "", regex=False)
-        .str.replace("$", "", regex=False)
+        .str.strip()
+        .str.upper()
     )
+    return df.rename(columns={col: "nycha_development"})
 
-    df[col] = pd.to_numeric(df[col])
+def clean_numeric(df, cols):
+    for col in cols:
+        if col in df.columns:
+            df[col] = (
+                df[col]
+                .astype(str)
+                .str.replace(",", "", regex=False)
+                .str.replace("$", "", regex=False)
+                .replace("nan", None)
+            )
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+    return df
 
-#replace NaN with 0
-df[numeric_cols] = df[numeric_cols].fillna(0)
 
-#convenient for plotting
-df["service_connections"] = df["total_number_of_resident_connections_to_services"]
-df = df.drop_duplicates()
+#loading data
+jobs_df = pd.read_csv("cleaned_nycha.csv")
+dev_df = pd.read_csv("development_data.csv")
+map_df = pd.read_csv("map_data.csv")
 
-#new csv created!
-df.to_csv("cleaned_nycha.csv", index=False)
+#cleaning data
+jobs_df = clean_columns(jobs_df)
+dev_df = clean_columns(dev_df)
+map_df = clean_columns(map_df)
+jobs_df = standardize_dev(jobs_df, "nycha_development")
+dev_df = standardize_dev(dev_df, "development")
+map_df = standardize_dev(map_df, "development")
+dev_df = clean_numeric(
+    dev_df,
+    ["total_population", "total_number_of_apartments", "density"]
+)
+dev_df = dev_df.drop_duplicates("nycha_development")
+map_df = map_df.drop_duplicates("nycha_development")
+
+#merging datasets
+merged_df = jobs_df.merge(dev_df, on="nycha_development", how="left")
+merged_df = merged_df.merge(
+    map_df[["nycha_development", "borough"]],
+    on="nycha_development",
+    how="left"
+)
+
+merged_df["services_per_capita"] = (
+    merged_df["service_connections"] /
+    merged_df["total_population"].replace(0, pd.NA)
+)
+merged_df["services_per_capita"] = merged_df["services_per_capita"].fillna(0)
+
+merged_df.to_csv("final_merged_nycha.csv", index=False)
+print("cleaning complete")
