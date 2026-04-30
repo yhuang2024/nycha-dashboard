@@ -1,5 +1,5 @@
 import PlotlyReact from "react-plotly.js"
-const Plot = (PlotlyReact as any).default || PlotlyReact
+const Plot = (PlotlyReact as any).default ?? PlotlyReact
 import type { NYCHARecord } from "../NYCHASchema"
 
 interface Props {
@@ -49,11 +49,10 @@ export default function ServiceIntensity({ data }: Props) {
         },
       ]}
       layout={{
-        title: "Service Intensity per Capita by Borough",
-        yaxis: { title: "Services per Capita" },
+        title: { text: "Service Intensity per Capita by Borough" },
+        yaxis: { title: { text: "Services per Capita" } },
       }}
     />
   )
 }
 
-console.log("Plot in file =", Plot)

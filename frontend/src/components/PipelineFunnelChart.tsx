@@ -1,5 +1,5 @@
 import PlotlyReact from "react-plotly.js"
-const Plot = (PlotlyReact as any).default || PlotlyReact
+const Plot = (PlotlyReact as any).default ?? PlotlyReact
 import type { NYCHARecord } from "../NYCHASchema"
 
 interface Props {
@@ -19,7 +19,7 @@ export default function PipelineFunnel({ data }: Props) {
           x: [sum("applied"), sum("accepted"), sum("placed")],
         },
       ]}
-      layout={{ title: "NYCHA Training Pipeline" }}
+      layout={{ title: { text: "NYCHA Training Pipeline"} }}
     />
   )
 }

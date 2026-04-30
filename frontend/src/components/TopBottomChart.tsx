@@ -1,5 +1,5 @@
 import PlotlyReact from "react-plotly.js"
-const Plot = (PlotlyReact as any).default || PlotlyReact
+const Plot = (PlotlyReact as any).default ?? PlotlyReact
 import type { NYCHARecord } from "../NYCHASchema"
 
 interface Props {
@@ -31,7 +31,7 @@ export default function TopBottom({ data }: Props) {
           y: combined.map((d) => d[0]),
         },
       ]}
-      layout={{ title: "Top vs Bottom NYCHA Developments" }}
+      layout={{ title: { text:"Top vs Bottom NYCHA Developments"} }}
     />
   )
 }

@@ -1,5 +1,5 @@
 import PlotlyReact from "react-plotly.js"
-const Plot = (PlotlyReact as any).default || PlotlyReact
+const Plot = (PlotlyReact as any).default ?? PlotlyReact
 import type { NYCHARecord } from "../NYCHASchema"
 
 interface Props {
@@ -18,7 +18,7 @@ export default function WageDistribution({ data }: Props) {
           .filter((d) => d.borough === b)
           .map((d) => Number(d.avgWage) || 0),
       }))}
-      layout={{ title: "Wage Distribution by Borough" }}
+      layout={{ title: { text:"Wage Distribution by Borough"} }}
     />
   )
 }
