@@ -11,7 +11,7 @@ The `frontend` folder and corresponding README contains all the information need
 
 ## Bibliography
 
-Burney, David. “What Happened to New York City Public Housing, and How Can We Fix It?” Common Edge, 4 Apr. 2024, commonedge.org/what-happened-to-new-york-city-public-housing-and-how-can-we-fix-it.
+Burney, David. “What Happened to New York City Public Housing, and How Can We Fix It?” Common Edge, 4 Apr. 2024, [commonedge.org/what-happened-to-new-york-city-public-housing-and-how-can-we-fix-it](https://commonedge.org/what-happened-to-new-york-city-public-housing-and-how-can-we-fix-it/).
 
 Dagen Bloom, Nicholas, and Matthew Gordon Lasner, editors. Affordable Housing in New York: The People, Places, and Policies That Transformed a City. Princeton UP, 2019.
 
@@ -21,7 +21,7 @@ New York City Housing Authority. NYCHA Fact Sheet 2025. Jan. 2025, www.nyc.gov/a
 “Public Housing/Section 8.” Coalition for the Homeless, 31 July 2025, www.coalitionforthehomeless.org/get-help/im-in-need-of-housing/public-housing-section-8.
 
 “Section 8 Housing Choice Voucher (HCV) Program.” New York State Homes and Community Renewal, July 2024, hcr.ny.gov/hcv.
-Turner, Tatyana. “NYCHA’s RAD/PACT and Preservation Trust Plans, Explained.” City Limits, 15 Aug. 2023, citylimits.org/nychas-rad-pact-and-preservation-trust-plans-explained.
+Turner, Tatyana. “NYCHA’s RAD/PACT and Preservation Trust Plans, Explained.” City Limits, 15 Aug. 2023, [citylimits.org/nychas-rad-pact-and-preservation-trust-plans-explained](https://citylimits.org/nychas-rad-pact-and-preservation-trust-plans-explained/).
 
 ## Acknowledgments
 
