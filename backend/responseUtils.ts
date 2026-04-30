@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response } from "express"
 
 /** 
  * Sends a standardized error response.
@@ -15,7 +15,7 @@ export function sendError(request: Request, response: Response, statusCode: numb
     errorMsg: errorMsg,
     timestamp: new Date().toISOString(),
     queryParams: request.query,
-  });
+  })
 }
 
 /**
@@ -29,5 +29,5 @@ export function sendSuccess(request: Request, response: Response, data: any) {
   response.status(200).json({
     result: "success",
     data: data
-  });
+  })
 }
