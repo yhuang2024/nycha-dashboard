@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.express as px
 
 # load data
-df = pd.read_csv("final_merged_nycha.csv")
+df = pd.read_csv("../data/final_merged_nycha.csv")
 
 #cleaning
 df.columns = df.columns.str.strip().str.lower()

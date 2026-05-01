@@ -5,7 +5,7 @@ import plotly.io as pio
 #rendering in browser for now bc dataset is so big
 pio.renderers.default = "browser"
 
-df = pd.read_csv("cleaned_nycha.csv")
+df = pd.read_csv("../data/cleaned_nycha.csv")
 print("csv loaded")
 
 #prepare data

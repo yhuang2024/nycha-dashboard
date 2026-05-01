@@ -4,7 +4,7 @@ import plotly.io as pio
 
 #render in browser
 pio.renderers.default = "browser"
-df = pd.read_csv("final_merged_nycha.csv")
+df = pd.read_csv("../data/final_merged_nycha.csv")
 print("csv loaded")
 
 #clean data

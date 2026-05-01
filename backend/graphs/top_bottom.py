@@ -4,7 +4,7 @@ import plotly.io as pio
 
 pio.renderers.default = "browser"
 
-df = pd.read_csv("final_merged_nycha.csv")
+df = pd.read_csv("../data/final_merged_nycha.csv")
 df.columns = df.columns.str.strip().str.lower()
 
 #finding mean services per capita by development
