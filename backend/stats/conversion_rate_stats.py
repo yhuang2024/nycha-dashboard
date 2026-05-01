@@ -60,8 +60,8 @@ corr = df[[applied_col, placed_col, "conversion_rate"]].corr()
 print(corr)
 
 #which boroughs have the most applications? which ones have the least?
-print("\n=== TOP 5 (MIN 10 APPLICATIONS) ===")
+print("TOP 5 BOROUGHS BY APPLICATIONS")
 print(df[df[applied_col] >= 10].nlargest(5, "conversion_rate")[["borough", applied_col, placed_col, "conversion_rate"]])
 
-print("\n=== BOTTOM 5 (MIN 10 APPLICATIONS) ===")
+print("BOTTOM 5 BOROUGHS BY APPLICATIONS")
 print(df[df[applied_col] >= 10].nsmallest(5, "conversion_rate")[["borough", applied_col, placed_col, "conversion_rate"]])
