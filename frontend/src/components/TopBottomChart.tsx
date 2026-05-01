@@ -35,5 +35,3 @@ export default function TopBottom({ data }: Props) {
     />
   )
 }
-
-console.log("Plot in file =", Plot)

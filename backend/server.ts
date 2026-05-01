@@ -40,7 +40,6 @@ const isMain = path.resolve(process.argv[1]) === path.resolve(__filename)
 
 if (isMain) {
   const server = new ServerApp()
-  console.log("starting server")
   server.start()
 }
 

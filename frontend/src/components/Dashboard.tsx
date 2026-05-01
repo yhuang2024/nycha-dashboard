@@ -14,10 +14,3 @@ export default function Dashboard({ data }: { data: NYCHARecord[] }) {
     </div>
   )
 }
-
-console.log({
-  ServiceIntensityChart,
-  WageDistributionChart,
-  PipelineFunnelChart,
-  TopBottomChart,
-})

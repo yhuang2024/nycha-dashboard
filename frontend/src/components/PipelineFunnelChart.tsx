@@ -23,5 +23,3 @@ export default function PipelineFunnel({ data }: Props) {
     />
   )
 }
-
-console.log("Plot in file =", Plot)

@@ -33,7 +33,6 @@ def clean_numeric(df, cols):
             df[col] = pd.to_numeric(df[col], errors="coerce")
     return df
 
-
 #loading data
 jobs_df = pd.read_csv("cleaned_nycha.csv")
 dev_df = pd.read_csv("development_data.csv")

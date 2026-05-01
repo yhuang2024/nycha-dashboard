@@ -22,5 +22,3 @@ export default function WageDistribution({ data }: Props) {
     />
   )
 }
-
-console.log("Plot in file =", Plot)
