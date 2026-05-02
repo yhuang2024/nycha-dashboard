@@ -8,6 +8,7 @@ df = pd.read_csv("../data/final_merged_nycha.csv")
 df.columns = df.columns.str.strip().str.lower()
 df["service_connections"] = pd.to_numeric(df["service_connections"], errors="coerce").fillna(0)
 df["total_population"] = pd.to_numeric(df["total_population"], errors="coerce").fillna(0)
+
 df["borough"] = df["borough"].str.strip().str.title()
 
 #borough-level data
@@ -19,11 +20,11 @@ borough_data = (
     })
 )
 
-#per capita metric
-borough_data["service_intensity_per_capita"] = (
-    borough_data["service_connections"] /
-    borough_data["total_population"].replace(0, pd.NA)
-).fillna(0)
+#relative advantage
+borough_data["service_intensity_total"] = (
+    borough_data["service_intensity_per_capita"] -
+    borough_data["service_intensity_per_capita"].mean()
+) / borough_data["service_intensity_per_capita"].std()
 
 #cool map whoa
 #shows service intensity per capita by borough visualized over a map of NYC
@@ -33,12 +34,18 @@ fig = px.choropleth_mapbox(
     locations="borough",
     featureidkey="properties.name",
     color="service_intensity_per_capita",
-    color_continuous_scale="Viridis",
+    color_continuous_scale="RdBu",
     mapbox_style="carto-positron",
     zoom=9.5,
     center={"lat": 40.7128, "lon": -74.0060},
     opacity=0.7,
-    title="NYCHA Service Intensity per Capita by Borough"
+    title="NYCHA Service Intensity per Capita by Borough",
+    hover_data={
+        "service_connections": True,
+        "total_population": True,
+        "service_intensity_per_capita": ":.4f"
+    }
 )
+fig.update_coloraxes(cmid=0)
 fig.show()
 
