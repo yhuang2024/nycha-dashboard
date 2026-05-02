@@ -6,7 +6,7 @@ from scipy import stats
 df = pd.read_csv("../data/final_merged_nycha.csv")
 df.columns = df.columns.str.strip().str.lower()
 df["borough"] = df["borough"].str.strip().str.title()
-df["job_placements"] = pd.to_numeric(df["total_number_of_resident_job_placements"] ,errors="coerce")
+df["job_placements"] = pd.to_numeric(df["total_number_of_resident_job_placements"], errors="coerce")
 df["job_applications"] = pd.to_numeric(df["total_number_of_residents_that_applied_for_the_nycha_resident_training_academy"], errors="coerce")
 
 #filtering out zero rows and missing boroughs to ensure valid comparisons
