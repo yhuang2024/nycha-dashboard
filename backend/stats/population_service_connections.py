@@ -22,7 +22,7 @@ print("OVERALL STATISTICS")
 print(df[["service_connections", "total_population", "services_per_capita"]].describe())
 
 #correlation
-print("\n=== CORRELATION ===")
+print("CORRELATION")
 corr = df[["total_population", "service_connections", "services_per_capita"]].corr()
 print(corr)
 
@@ -38,7 +38,7 @@ print(f"R^2: {r_value**2:.4f}")
 print(f"P-value: {p_value:.4f}")
 
 #borough-level analysis
-print("\n=== BY BOROUGH (MEAN / MEDIAN / STD) ===")
+print("MEAN, MEDIAN, STD, COUNT OF SERVICE PER CAPITA BY BOROUGH")
 borough_stats = df.groupby("borough")["services_per_capita"].agg(
     ["mean", "median", "std", "count"]
 )
