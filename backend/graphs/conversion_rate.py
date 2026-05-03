@@ -23,4 +23,3 @@ fig = px.bar(
     title="NYCHA Job Conversion Rate by Borough"
 )
 fig.show()
-
