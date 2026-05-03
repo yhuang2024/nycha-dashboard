@@ -2,7 +2,7 @@ import express, { Express } from "express"
 import cors from "cors"
 import { fileURLToPath } from "url"
 import path from "path"
-import { registerGetCSVHandler } from "./getCSVHandler"
+import { registerGetCSVHandler } from "./getCSVHandler.js"
 
 export class ServerApp {
   public app: Express

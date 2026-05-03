@@ -1,4 +1,6 @@
 {
+  "name": "backend",
+  "type": "module",
   "dependencies": {
     "cors": "^2.8.6",
     "csv-parser": "^3.2.0",

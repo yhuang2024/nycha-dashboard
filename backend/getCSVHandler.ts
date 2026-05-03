@@ -1,5 +1,5 @@
 import { Express, Request, Response } from "express"
-import { sendError } from "./responseUtils"
+import { sendError } from "./responseUtils.js"
 import path from "path"
 import { fileURLToPath } from "url"
 import fs from "fs/promises"
