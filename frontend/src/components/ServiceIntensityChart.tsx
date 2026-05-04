@@ -14,30 +14,25 @@ export default function ServiceIntensity({ data }: Props) {
   const boroughMap: Record<string, { s: number; p: number }> = {}
 
   data.forEach((d) => {
-    if (!d) return
+    const b = d?.borough ?? "Unknown"
 
-    const b = d.borough ?? "Unknown"
-
-    const s = Number(d.serviceConnections ?? 0)
-    const p = Number(d.population ?? 0)
+    const s = Number(d?.serviceConnections ?? 0)
+    const p = Number(d?.population ?? 0)
 
     if (!boroughMap[b]) {
       boroughMap[b] = { s: 0, p: 0 }
     }
 
-    boroughMap[b].s += isNaN(s) ? 0 : s
-    boroughMap[b].p += isNaN(p) ? 0 : p
+    boroughMap[b].s += isFinite(s) ? s : 0
+    boroughMap[b].p += isFinite(p) ? p : 0
   })
 
   const entries = Object.entries(boroughMap)
 
   const x = entries.map(([b]) => b)
-
   const y = entries.map(([_, v]) =>
     v.p > 0 ? v.s / v.p : 0
   )
-
-  const safeY = y.map((v) => (isFinite(v) ? v : 0))
 
   return (
     <Plot
@@ -45,14 +40,18 @@ export default function ServiceIntensity({ data }: Props) {
         {
           type: "bar",
           x,
-          y: safeY,
+          y,
         },
       ]}
+      useResizeHandler
+      style={{ width: "100%", height: "100%" }}
+      config={{ responsive: true }}
       layout={{
+        autosize: true,
+        margin: { l: 40, r: 10, t: 40, b: 40 },
         title: { text: "Service Intensity per Capita by Borough" },
         yaxis: { title: { text: "Services per Capita" } },
       }}
     />
   )
 }
-

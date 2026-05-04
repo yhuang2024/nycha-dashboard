@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { NYCHASchema } from "./NYCHASchema"
 import type { NYCHARecord } from "./NYCHASchema"
 import Dashboard from "./components/Dashboard"
+import { Routes, Route } from "react-router-dom"
+import GraphPage from "./components/GraphPage"
 
 function parseNumber(value: unknown): number {
   if (typeof value === "number") {
@@ -50,7 +52,6 @@ function normalizeCSVRow(row: any): NYCHARecord | null {
 
 export default function App() {
   const [data, setData] = useState<NYCHARecord[]>([])
-  const [borough, setBorough] = useState<string>("All")
 
   useEffect(() => {
     fetch("http://localhost:3001/getcsv?filepath=final_merged_nycha.csv&hasHeader=true")
@@ -67,23 +68,26 @@ export default function App() {
       })
   }, [])
 
-  const filteredData =
-    borough === "All"
-      ? data
-      : data.filter((d) => d.borough === borough)
-
   return (
     <div style={{ padding: 20 }}>
       <h1>NYCHA Dashboard</h1>
 
-      <select onChange={(e) => setBorough(e.target.value)}>
-        <option>All</option>
-        {[...new Set(data.map((d) => d.borough))].map((b) => (
-          <option key={b}>{b}</option>
-        ))}
-      </select>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
 
-      <Dashboard data={filteredData} />
+              <Dashboard data={data} />
+            </>
+          }
+        />
+
+        <Route
+          path="/graph/:id"
+          element={<GraphPage data={data} />}
+        />
+      </Routes>
     </div>
   )
 }

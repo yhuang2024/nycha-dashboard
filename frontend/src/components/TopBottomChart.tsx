@@ -31,7 +31,14 @@ export default function TopBottom({ data }: Props) {
           y: combined.map((d) => d[0]),
         },
       ]}
-      layout={{ title: { text:"Top vs Bottom NYCHA Developments"} }}
+      useResizeHandler
+      style={{ width: "100%", height: "100%" }}
+      config={{ responsive: true, displayModeBar: false }}
+      layout={{
+        autosize: true,
+        margin: { l: 120, r: 20, t: 50, b: 40 },
+        title: { text: "Top vs Bottom NYCHA Developments" },
+      }}
     />
   )
 }
