@@ -45,6 +45,7 @@ New York City Housing Authority. NYCHA Fact Sheet 2025. Jan. 2025, www.nyc.gov/a
 “Public Housing/Section 8.” Coalition for the Homeless, 31 July 2025, www.coalitionforthehomeless.org/get-help/im-in-need-of-housing/public-housing-section-8.
 
 “Section 8 Housing Choice Voucher (HCV) Program.” New York State Homes and Community Renewal, July 2024, hcr.ny.gov/hcv.
+
 Turner, Tatyana. “NYCHA’s RAD/PACT and Preservation Trust Plans, Explained.” City Limits, 15 Aug. 2023, [citylimits.org/nychas-rad-pact-and-preservation-trust-plans-explained](https://citylimits.org/nychas-rad-pact-and-preservation-trust-plans-explained/).
 
 ## Acknowledgments
