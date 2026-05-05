@@ -1,5 +1,4 @@
 import CountUp from 'react-countup'
-import { motion } from 'framer-motion'
 
 type NumberProps = { 
   value: number 
