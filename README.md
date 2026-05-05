@@ -1,4 +1,4 @@
-# NYCHA Data Dashboard
+# Warning: No Service - An Analysis and Visualization of Unequal Social Service Distribution Within the New York City Housing Authority (NYCHA)
 *URBN 1250 Final Project*
 
 This project visualizes a digital data dashboard of the New York City Housing Authority's connections between public housing developments and access to social services. As the United States is a delegated welfare state, organizations such as NYCHA play a crucial role in the distribution of social services; however, as demonstrated through my analysis, the effectiveness of NYCHA's outreach falls short, particularly in neighborhoods such as the Bronx (“Community Services Programs”). Larger neighborhoods do not necessarily correspond with greater access to social services, and the effectiveness of job development programs in particular is questionable. As such, NYCHA's social services are not only distributed unevenly across developments, but are also frequently underutilized, demonstrating that one major limitation of the delegated welfare state in New York City is its inability to equitably distribute effective resources where they are needed the most as a result of chronic underfunding by the federal government.
@@ -13,7 +13,7 @@ Overall, the findings suggest that expanding access, outreach, and program capac
 
 ## Organization
 
-This project was developed in Python (backend, data collection and analysis, modelling), TypeScript with React (frontend, data visualization, animations, UI), and a dash of HTML/CSS.
+This project was developed in Python (backend, data collection and analysis, modelling), TypeScript with React (frontend, data visualization, animations, UI), and a dash of HTML/CSS. All statistics are included in the appendix (second tab of [this document](https://docs.google.com/document/d/1KUwSAfO7yzYfuZFl6bSw99bqIaLhGSIZxc7g5mVGOCo/edit?usp=sharing)).
 
 The `backend` folder contains the raw Plotly graphs and data analysis scripts for the data dashboard and the custom CSV parser used to extract and parse data from publically available NYCHA datasets. All statistics can be reviewed by navigating to `backend/stats` and running `python3 [NAME OF FILE].py`. 
 
