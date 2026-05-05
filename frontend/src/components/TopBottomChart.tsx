@@ -37,7 +37,7 @@ export default function TopBottom({ data }: Props) {
       layout={{
         autosize: true,
         margin: { l: 120, r: 20, t: 50, b: 40 },
-        title: { text: "Top vs Bottom NYCHA Developments" },
+        title: { text: "10 Best- vs. Worst-Performing NYCHA Developments" },
       }}
     />
   )
