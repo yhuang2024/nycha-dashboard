@@ -5,6 +5,7 @@ import TopBottomChart from "./TopBottomChart"
 import NYCHAMap from "./Map"
 import type { NYCHARecord } from "../NYCHASchema"
 import { type JSX } from "react"
+import { AnimatedNumber } from "./animations"
 
 interface GraphPageProps {
   data: NYCHARecord[]
@@ -84,7 +85,9 @@ export default function GraphPage({ data }: GraphPageProps) {
         <div className="stat-row">
           {page.stats(data).map((s, i) => (
             <div key={i} className="stat-card">
-              <div className="stat-value">{s.value}</div>
+              <div className="stat-value">
+                <AnimatedNumber value={Number(s.value)} duration={2} />
+              </div>
               <div className="stat-label">{s.label}</div>
             </div>
           ))}
