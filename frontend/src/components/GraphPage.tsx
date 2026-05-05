@@ -21,7 +21,7 @@ const configs: Record<string, GraphConfig> = {
   serviceIntensity: {
     title: "Service Access Inequality",
     description:
-      "Service access across NYCHA is highly unequal. The weighted number of service connections per capita across boroughs is very low, indicating that the average NYCHA resident has limited access to services. Additionally, almost 1 in 4 developments have no service coverage at all, reflecting a lack of access/extremely inactive programs across the board. While larger developments receive more services, this does not scale proportionally with population, leaving many residents underserved. Therefore, inequality is driven primarily by lack of access rather than variation in service quality.",
+      "Service access across NYCHA is highly unequal. The weighted number of service connections per capita across boroughs is very low, indicating that the average NYCHA resident has limited access to services. Additionally, more than 1 in 4 developments have no service coverage at all, reflecting a lack of access/extremely inactive programs across the board. While larger developments receive more services, this does not scale proportionally with population, leaving many residents underserved. Therefore, inequality is driven primarily by lack of access rather than variation in service quality.",
     component: (data) => <ServiceIntensityChart data={data} />,
     stats: () => {
       return [

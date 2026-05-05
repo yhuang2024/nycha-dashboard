@@ -54,7 +54,8 @@ export default function App() {
   const [data, setData] = useState<NYCHARecord[]>([])
 
   useEffect(() => {
-    fetch("/api/getcsv?filepath=data/final_merged_nycha.csv&hasHeader=true")
+    fetch("http://localhost:3001/getcsv?filepath=final_merged_nycha.csv&hasHeader=true")
+    //fetch("/api/getcsv?filepath=data/final_merged_nycha.csv&hasHeader=true")
       .then((res) => res.json())
       .then((json) => {
         const records = (json.data as any[])
@@ -75,7 +76,7 @@ export default function App() {
         path="/"
         element={
           <div style={{ padding: 20 }}>
-            <h1>Warning: No Service - An Analysis of Unequal Social Service Distribution within NYCHA</h1>
+            <h1>Warning: No Service - An Analysis and Visualization of Unequal Social Service Distribution within NYCHA</h1>
             <p>
               This dashboard examines how access to social services varies across NYCHA developments and
               how those differences are related to workforce participation and economic mobility outcomes.
