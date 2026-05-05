@@ -16,6 +16,7 @@
     "typescript": "^6.0.3"
   },
   "scripts": {
-    "dev": "tsx server.ts"
+    "dev": "tsx server.ts",
+    "build": "tsc"
   }
 }
