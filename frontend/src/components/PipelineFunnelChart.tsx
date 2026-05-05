@@ -18,12 +18,27 @@ export default function PipelineFunnel({ data }: Props) {
             type: "funnel",
             y: ["Applied", "Accepted", "Placed"],
             x: [sum("applied"), sum("accepted"), sum("placed")],
+
+            marker: {
+              color: ["#C94A67", "#B33A55", "#9A263F"],
+            },
+
+            textinfo: "value+percent initial",
           },
         ]}
         layout={{
           title: { text: "NYCHA Training Pipeline", x: 0.5 },
+
+          paper_bgcolor: "transparent",
+          plot_bgcolor: "transparent",
+
+          font: {
+            family: "Spectral, serif",
+            color: "#08060d",
+          },
+
           autosize: true,
-          margin: { l: 40, r: 20, t: 40, b: 40 },
+          margin: { l: 40, r: 20, t: 50, b: 40 },
         }}
         useResizeHandler={true}
         style={{ width: "100%", height: "100%" }}

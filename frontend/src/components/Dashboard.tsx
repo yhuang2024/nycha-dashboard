@@ -8,14 +8,14 @@ import { Link } from "react-router-dom"
 export default function Dashboard({ data }: { data: NYCHARecord[] }) {
   return (
     <div className="dashboard-grid">
+      <Link to="/graph/nychaMap" className="chart-card">
+        <div className="chart-title">NYCHA Developments Map</div>
+        <NYCHAMap />
+      </Link>
+
       <Link to="/graph/serviceIntensity" className="chart-card">
         <div className="chart-title">Inequality in Service Access</div>
         <ServiceIntensityChart data={data} />
-      </Link>
-
-      <Link to="/graph/jobPipeline" className="chart-card">
-        <div className="chart-title">Inequality in Economic Mobility Outcomes</div>
-        <PipelineFunnelChart data={data} />
       </Link>
 
       <Link to="/graph/topBottomDevelopments" className="chart-card">
@@ -23,9 +23,9 @@ export default function Dashboard({ data }: { data: NYCHARecord[] }) {
         <TopBottomChart data={data} />
       </Link>
 
-      <Link to="/graph/nychaMap" className="chart-card">
-        <div className="chart-title">NYCHA Developments Map</div>
-        <NYCHAMap />
+      <Link to="/graph/jobPipeline" className="chart-card">
+        <div className="chart-title">Inequality in Economic Mobility Outcomes</div>
+        <PipelineFunnelChart data={data} />
       </Link>
     </div>
   )

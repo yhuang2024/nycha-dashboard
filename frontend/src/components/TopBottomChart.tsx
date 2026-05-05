@@ -29,6 +29,12 @@ export default function TopBottom({ data }: Props) {
           orientation: "h",
           x: combined.map((d) => d[1]),
           y: combined.map((d) => d[0]),
+
+          marker: {
+            color: combined.map((_, i) =>
+              i < 10 ? "#9A263F" : "#C94A67"
+            ),
+          },
         },
       ]}
       useResizeHandler
@@ -36,8 +42,30 @@ export default function TopBottom({ data }: Props) {
       config={{ responsive: true, displayModeBar: false }}
       layout={{
         autosize: true,
-        margin: { l: 120, r: 20, t: 50, b: 40 },
-        title: { text: "10 Best- vs. Worst-Performing NYCHA Developments" },
+
+        paper_bgcolor: "transparent",
+        plot_bgcolor: "transparent",
+
+        margin: { l: 140, r: 20, t: 40, b: 40 },
+
+        title: {
+          text: "10 Best- and Worst-Performing NYCHA Developments", 
+        },
+
+        xaxis: {
+          color: "#6b6375",
+          gridcolor: "#e5e4e7",
+          zeroline: false,
+        },
+
+        yaxis: {
+          color: "#08060d",
+        },
+
+        font: {
+          family: "Spectral, Georgia, serif",
+          color: "#6b6375",
+        },
       }}
     />
   )

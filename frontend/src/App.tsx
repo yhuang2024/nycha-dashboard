@@ -70,7 +70,13 @@ export default function App() {
 
   return (
     <div style={{ padding: 20 }}>
-      <h1>NYCHA Dashboard</h1>
+      <h1>Warning: No Service - An Analysis of Unequal Social Service Distribution within NYCHA</h1>
+      <p>This dashboard examines how access to social services varies across NYCHA developments and 
+        how those differences are related to workforce participation and economic mobility outcomes. 
+        By comparing access to services and job training program pipelines across boroughs, this
+        dashboard highlights where structural gaps in access to social services may be limiting 
+        opportunity for NYCHA residents, most likely as a result of chronic underfunding by
+        federal government. </p>
 
       <Routes>
         <Route

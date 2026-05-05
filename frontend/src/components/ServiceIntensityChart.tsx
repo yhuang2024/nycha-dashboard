@@ -38,9 +38,18 @@ export default function ServiceIntensity({ data }: Props) {
     <Plot
       data={[
         {
-          type: "bar",
-          x,
-          y,
+          type: "bar", x, y,
+
+          marker: {
+            color: "#C94A67",
+            line: {
+              color: "#9A263F",
+              width: 1.5,
+            },
+          },
+
+          hovertemplate:
+            "<b>%{x}</b><br>Services per capita: %{y:.4f}<extra></extra>",
         },
       ]}
       useResizeHandler
@@ -48,9 +57,32 @@ export default function ServiceIntensity({ data }: Props) {
       config={{ responsive: true }}
       layout={{
         autosize: true,
-        margin: { l: 40, r: 10, t: 40, b: 40 },
-        title: { text: "Service Intensity per Capita by Borough" },
-        yaxis: { title: { text: "Services per Capita" } },
+        paper_bgcolor: "transparent",
+        plot_bgcolor: "transparent",
+
+        margin: { l: 50, r: 20, t: 50, b: 50 },
+
+        title: {
+          text: "Service Intensity per Capita by Borough",
+          font: { size: 16, color: "#08060d" },
+        },
+
+        xaxis: {
+          tickfont: { color: "#6b6375" },
+          showgrid: false,
+        },
+
+        yaxis: {
+          title: { text: "Services per Capita" },
+          tickfont: { color: "#6b6375" },
+          gridcolor: "#e5e4e7",
+          zeroline: false,
+        },
+
+        font: {
+          family: "Spectral, serif",
+          color: "#08060d",
+        },
       }}
     />
   )
