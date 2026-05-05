@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import PipelineFunnelChart from "./PipelineFunnelChart"
 import ServiceIntensityChart from "./ServiceIntensityChart"
 import TopBottomChart from "./TopBottomChart"
-import WageDistributionChart from "./WageDistributionChart"
+import NYCHAMap from "./Map"
 import type { NYCHARecord } from "../NYCHASchema"
 import { type JSX } from "react"
 
@@ -18,9 +18,9 @@ export default function GraphPage({ data }: GraphPageProps) {
 
   const charts: Record<string, JSX.Element> = {
     serviceConnections: <ServiceIntensityChart data={data} />,
-    population: <PipelineFunnelChart data={data} />,
-    avgWage: <TopBottomChart data={data} />,
-    applied: <WageDistributionChart data={data} />,
+    jobPipeline: <PipelineFunnelChart data={data} />,
+    topBottomDevelopments: <TopBottomChart data={data} />,
+    map: <NYCHAMap  />,
   }
 
   return (

@@ -1,8 +1,8 @@
 import type { NYCHARecord } from "../NYCHASchema"
 import ServiceIntensityChart from "./ServiceIntensityChart"
-import WageDistributionChart from "./WageDistributionChart"
 import PipelineFunnelChart from "./PipelineFunnelChart"
 import TopBottomChart from "./TopBottomChart"
+import NYCHAMap from "./Map"
 import { Link } from "react-router-dom"
 
 export default function Dashboard({ data }: { data: NYCHARecord[] }) {
@@ -23,9 +23,9 @@ export default function Dashboard({ data }: { data: NYCHARecord[] }) {
         <TopBottomChart data={data} />
       </Link>
 
-      <Link to="/graph/wageDistribution" className="chart-card">
-        <div className="chart-title">Distribution of Wages Among Developments</div>
-        <WageDistributionChart data={data} />
+      <Link to="/graph/nychaMap" className="chart-card">
+        <div className="chart-title">NYCHA Developments Map</div>
+        <NYCHAMap />
       </Link>
     </div>
   )
