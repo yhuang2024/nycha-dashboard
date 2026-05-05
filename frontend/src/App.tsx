@@ -54,7 +54,7 @@ export default function App() {
   const [data, setData] = useState<NYCHARecord[]>([])
 
   useEffect(() => {
-    fetch("http://localhost:3001/getcsv?filepath=final_merged_nycha.csv&hasHeader=true")
+    fetch("/api/getcsv?filepath=data/final_merged_nycha.csv&hasHeader=true")
       .then((res) => res.json())
       .then((json) => {
         const records = (json.data as any[])
