@@ -64,7 +64,7 @@ export default function ServiceIntensity({ data }: Props) {
 
         title: {
           text: "Service Intensity per Capita by Borough",
-          font: { size: 16, color: "#08060d" },
+          font: { size: 16, color: "#6b6375" },
         },
 
         xaxis: {
@@ -81,7 +81,7 @@ export default function ServiceIntensity({ data }: Props) {
 
         font: {
           family: "Spectral, serif",
-          color: "#08060d",
+          color: "#6b6375",
         },
       }}
     />

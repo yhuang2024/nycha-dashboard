@@ -34,7 +34,7 @@ export default function PipelineFunnel({ data }: Props) {
 
           font: {
             family: "Spectral, serif",
-            color: "#08060d",
+            color: "#6b6375",
           },
 
           autosize: true,

@@ -59,7 +59,7 @@ export default function TopBottom({ data }: Props) {
         },
 
         yaxis: {
-          color: "#08060d",
+          color: "#6b6375",
         },
 
         font: {

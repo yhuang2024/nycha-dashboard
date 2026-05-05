@@ -9,7 +9,7 @@ export default function Dashboard({ data }: { data: NYCHARecord[] }) {
   return (
     <div className="dashboard-grid">
       <Link to="/graph/nychaMap" className="chart-card">
-        <div className="chart-title">NYCHA Developments Map</div>
+        <div className="chart-title">Map of NYCHA Developments and Social Service Providers</div>
         <NYCHAMap />
       </Link>
 
