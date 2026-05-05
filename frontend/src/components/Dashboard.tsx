@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 export default function Dashboard({ data }: { data: NYCHARecord[] }) {
   return (
     <div className="dashboard-grid">
-      <Link to="/graph/nychaMap" className="chart-card">
+      <Link to="/graph/map" className="chart-card">
         <div className="chart-title">Map of NYCHA Developments and Social Service Providers</div>
         <NYCHAMap />
       </Link>
