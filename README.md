@@ -11,6 +11,8 @@ There are some borough-level differences, particularly between Brooklyn (with st
 
 Overall, the findings suggest that expanding access, outreach, and program capacity rather than improving program quality alone will have the greatest impact on reducing inequality and improving economic mobility for NYCHA residents. The analysis also highlights that a key limitation of delegated governance is the uneven distribution of resources among residents, resulting in a fragmented system where access to social services depends largely on local “street-level” implementation rather than city-wide policy efforts. Therefore, NYCHA’s failure to provide all residents with adequate access to social services demonstrates that a delegated welfare state can actually exacerbate inequality by limiting the state’s ability to deliver welfare equitably across areas, particularly in a chronically underfunded and uncoordinated environment such as NYCHA (Ferré-Sadurní).
 
+Future work will consist of analyzing borough-level statistics and diving deeper into specific local policy implementations, animating statistics on the webpage, and improving the loading efficiency of the webpage with JSON caching.
+
 ## Organization
 
 This project was developed in Python (backend, data collection and analysis, modelling), TypeScript with React (frontend, data visualization, animations, UI), and a dash of HTML/CSS. All statistics are included in the appendix (second tab of [this document](https://docs.google.com/document/d/1KUwSAfO7yzYfuZFl6bSw99bqIaLhGSIZxc7g5mVGOCo/edit?usp=sharing)).
