@@ -63,7 +63,7 @@ export default function TopBottom({ data }: Props) {
         },
 
         font: {
-          family: "Spectral, Georgia, serif",
+          family: "Merriweather, Georgia, serif",
           color: "#6b6375",
         },
       }}

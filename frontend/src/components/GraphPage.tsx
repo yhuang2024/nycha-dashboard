@@ -21,7 +21,7 @@ const configs: Record<string, GraphConfig> = {
   serviceIntensity: {
     title: "Service Access Inequality",
     description:
-      "Service access across NYCHA is highly unequal. The weighted number of service connections per capita across boroughs is very low, indicating that the average NYCHA resident has limited access to services. Additionally, more than 1 in 4 developments have no service coverage at all, reflecting a lack of access/extremely inactive programs across the board. While larger developments receive more services, this does not scale proportionally with population, leaving many residents underserved. Therefore, inequality is driven primarily by lack of access rather than variation in service quality.",
+      "The weighted number of service connections per capita across boroughs hovers at a low 0.008, indicating that the average NYCHA resident has very limited access to NYCHA-facilitated social services. Additionally, more than 26% of developments have no service coverage at all, reflecting an overall lack of access to social services and/or extremely inactive social service programs that are unable to efficiently serve developments with large populations.",
     component: (data) => <ServiceIntensityChart data={data} />,
     stats: () => {
       return [
@@ -37,8 +37,10 @@ const configs: Record<string, GraphConfig> = {
 
   jobPipeline: {
     title: "Job Pipeline Funnel",
-    description:
-      "The job pipeline funnel reveals that while a significant number of NYCHA residents apply to job training programs, very few actually get accepted into these programs. This data suggests that the primary barrier to employment is not job placement but rather access to training programs. There is a strong positive correlation between acceptance and placement, and the weighted conversion rates across boroughs indicate that residents in Brooklyn have relatively better access compared to other boroughs, yielding a p-value of 0.0001 after running ANOVA, highlighting that there are significant differences in conversion rates between boroughs. This pattern can be explained by the fact that the majority of job training programs operate in Brooklyn, which also has the highest population of NYCHA residents. The lack of sufficient application data for certain developments (particularly in Staten Island) indicates that residents in many developments are unable to engage with job training programs, but those that do have consistently strong outcomes, as demonstrated by an overall placement rate of 51.7% for those accepted into job training programs for all boroughs. This result indicates that residents have a good chance of getting a job after being accepted into a job training program, emphasizing that access to social services and acceptance capacity for job training programs remain the greatest barriers to economic mobility for NYCHA residents.",
+    description: `While 8476 NYCHA residents applied to job training programs, only around 9% were actually accepted into these programs. There is a strong positive correlation between acceptance and placement, and analysis of the weighted conversion rates across boroughs demonstrates that residents in Brooklyn have statistically significant better access to services than residents in other boroughs, yielding a p-value of 0.0001 after running ANOVA. The data also highlights that there are significant differences in conversion rates between boroughs, explained by the fact that the majority of job training programs operate in Brooklyn, which also has the highest population of NYCHA residents. 
+
+      The lack of sufficient application data for certain developments, particularly in Staten Island, indicates that residents in many developments are unable to engage with job training programs. However, those that do have consistently strong outcomes, demonstrated by an overall placement rate of 51.7% across all boroughs. These results indicate that residents have a good chance of getting a job after being accepted into a job training program, emphasizing that access to social services and acceptance capacity for job training programs remain the greatest barriers to economic mobility for NYCHA residents.
+    `,
     component: (data) => <PipelineFunnelChart data={data} />,
     stats: () => [
       { label: "Average Placement Rate", value: 51.7, suffix: "%" },
@@ -53,14 +55,20 @@ const configs: Record<string, GraphConfig> = {
   topBottomDevelopments: {
     title: "10 Best- and Worst-Performing Developments",
     description:
-      "Opportunity is concentrated in a small subset of developments, while many remain under-resourced, illustrating systemic issues in service distribution across the city. Low service access leads to a weaker job training pipeline, due to a lack of sufficient job training programs, leading to fewer job placements and decreased access to economic mobility opportunities.",
+      "The data reveals that a few developments have very concentrated access to services. However, many developments remain underserved, illustrating systemic inequalities in the distribution of social services for NYCHA residents across New York City. The lack of sufficient services such as job training programs thus contributes to a weaker job training pipeline, keeping job placement rates low and decreasing opportunities for economic mobility.",
     component: (data) => <TopBottomChart data={data} />,
   },
 
   map: {
     title: "Map of Distribution of NYCHA Services",
-    description:
-      "The clustering of services in boroughs such as Brooklyn reveals structural inequality in the implementation of social services across NYC. For instance, Staten Island has a few well-served developments and a low population, explaining its high weighted service connections per capita, but it actually has the most uneven distribution of resources. Brooklyn has the highest population and the most services, but its weighted service connections per capita is still very low, indicating that even in the best-served boroughs, access to services is limited. The Bronx and Queens have similar weighted service connections per capita, but the Bronx has a much higher population and more developments, suggesting that resources are more thinly spread across a larger number of residents and developments. Manhattan has a relatively high weighted service connections per capita compared to its population size, but it still faces significant challenges in providing adequate access to services for all residents. Overall, the map highlights the need for a more equitable distribution of resources across all boroughs to ensure that all NYCHA residents have access to social services, particularly job training programs.",
+    description: `The map shows that social services are frequently clustered in boroughs such as Brooklyn, revealing structural inequality in the distribution and implementation of social welfare programs. 
+
+      For instance, Staten Island has a few well-served developments and a low population, explaining its high weighted service connections per capita, but it also has the most uneven distribution of resources. While Brooklyn has the most social welfare programs, its weighted service connections per capita is still very low as a result of its high population, indicating that the number of programs in Brooklyn may still not be enough to sustain all residents. Furthermore, the Bronx and Queens have similar weighted service connections per capita, but the Bronx has a much higher population and more developments, suggesting that resources are thinly spread out across boroughs, causing residents to be chronically underserved. Manhattan has a relatively high weighted service connections per capita, but the borough still struggles to provide adequate access to services for all residents in NYCHA developments. 
+
+      NYCHA’s unstable funding structure certainly plays a role in this uneven distribution. The Trump administration’s recent $33.6 billion federal cuts to HUD funding have put pressure on the budget while personnel costs have been rising, highlighting a lack of sufficient funding for social service programs and development maintenance, which has contributed to poor living conditions within NYCHA facilities. 
+
+      Overall, the map highlights the need for a more equitable distribution of resources across all boroughs to ensure that all NYCHA residents have access to social services, particularly job training programs. These disparities can be explained in part due to a lack of federal funding for social welfare programs and poor management within NYCHA’s bureaucracy. 
+    `,
     component: () => <NYCHAMap />,
   },
 }
@@ -85,7 +93,9 @@ export default function GraphPage({ data }: GraphPageProps) {
       </button>
 
       <h2>{page.title}</h2>
-      <p className="graph-description">{page.description}</p>
+      <p className="graph-description">
+        {page.description}
+      </p>
 
       {page.stats && (
         <div className="stat-row">

@@ -33,7 +33,7 @@ export default function PipelineFunnel({ data }: Props) {
           plot_bgcolor: "transparent",
 
           font: {
-            family: "Spectral, serif",
+            family: "Merriweather, Georgia, serif",
             color: "#6b6375",
           },
 

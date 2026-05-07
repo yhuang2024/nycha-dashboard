@@ -14,8 +14,11 @@ export default function ServiceIntensity({ data }: Props) {
   const boroughMap: Record<string, { s: number; p: number }> = {}
 
   data.forEach((d) => {
-    const b = d?.borough ?? "Unknown"
+    if (!d?.borough || d.borough.trim() === "") {
+      return
+    }
 
+    const b = d.borough.trim()
     const s = Number(d?.serviceConnections ?? 0)
     const p = Number(d?.population ?? 0)
 
@@ -80,7 +83,7 @@ export default function ServiceIntensity({ data }: Props) {
         },
 
         font: {
-          family: "Spectral, serif",
+          family: "Merriweather, Georgia, serif",
           color: "#6b6375",
         },
       }}
