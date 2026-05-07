@@ -10,4 +10,5 @@ app.use(express.json({ limit: "5mb" }))
 registerGetCSVHandler(app)
 console.log("Server initialized")
 
+//exporting app for vercel server
 export default app

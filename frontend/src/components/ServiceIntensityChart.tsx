@@ -6,6 +6,7 @@ interface Props {
   data: NYCHARecord[]
 }
 
+//bar chart that shows service connections per capita by borough
 export default function ServiceIntensity({ data }: Props) {
   if (!Array.isArray(data) || data.length === 0) {
     return <div>No data available</div>
@@ -33,9 +34,7 @@ export default function ServiceIntensity({ data }: Props) {
   const entries = Object.entries(boroughMap)
 
   const x = entries.map(([b]) => b)
-  const y = entries.map(([_, v]) =>
-    v.p > 0 ? v.s / v.p : 0
-  )
+  const y = entries.map(([_, v]) => v.p > 0 ? v.s / v.p : 0)
 
   return (
     <Plot
@@ -55,6 +54,7 @@ export default function ServiceIntensity({ data }: Props) {
             "<b>%{x}</b><br>Services per capita: %{y:.4f}<extra></extra>",
         },
       ]}
+      //stylizing graph with colors and fonts
       useResizeHandler
       style={{ width: "100%", height: "100%" }}
       config={{ responsive: true }}

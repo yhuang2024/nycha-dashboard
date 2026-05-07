@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 
+/* global styles and variables */
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -116,6 +117,7 @@ code {
   background: var(--code-bg);
 }
 
+/* dashboard specific stylizing */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -139,6 +141,8 @@ code {
   color: inherit;
 }
 
+/* making the cards with hover effects and title overlays to cover the dashboard objects */
+/* it looks cool and also makes it clear that you can click on them to go to the graph pages */
 .chart-card {
   position: relative;
   display: block;
@@ -150,6 +154,7 @@ code {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  /* easing to make the transition less abrupt */
   transition: transform 0.25s ease, border-color 0.25s ease;
   height: 420px;
   display: flex; 
@@ -166,6 +171,7 @@ code {
   z-index: 1;
 }
 
+/* ooh cool hover effects */
 .chart-card::after {
   content: "";
   position: absolute;
@@ -216,6 +222,7 @@ code {
   display: block;
 }
 
+/* graph page stylization for back button, description, stats, and graph */
 .graph-page {
   max-width: 1000px;
   margin: 0 auto;
@@ -231,6 +238,7 @@ code {
   white-space: pre-line;
 }
 
+/* displaying the stats in an ordered grid with 3 cards per row */
 .stat-row {
   display: grid;
   grid-template-columns: repeat(3, 220px);
@@ -239,7 +247,6 @@ code {
   margin: 20px auto;
   max-width: 1000px;
 }
-
 
 .stat-card {
   background: var(--bg);

@@ -8,6 +8,7 @@ import Papa from "papaparse"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+//registering endpoint for express backend server to get csv data to frontend visualizations
 export function registerGetCSVHandler(app: Express) {
   app.get("/getcsv", async (req: Request, res: Response) => {
     let hasHeader: boolean = false

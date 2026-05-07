@@ -1,6 +1,6 @@
 import pandas as pd
 
-# helper functions for cleaning
+#helper functions for cleaning
 def clean_columns(df):
     df.columns = (
         df.columns

@@ -6,6 +6,7 @@ interface Props {
   data: NYCHARecord[]
 }
 
+//bar chart that shows top 10 and bottom 10 developments by services per capita
 export default function TopBottom({ data }: Props) {
   const map: Record<string, number> = {}
 
@@ -15,10 +16,8 @@ export default function TopBottom({ data }: Props) {
   })
 
   const sorted = Object.entries(map).sort((a, b) => a[1] - b[1])
-
   const bottom10 = sorted.slice(0, 10)
   const top10 = sorted.slice(-10)
-
   const combined = [...bottom10, ...top10]
 
   return (
@@ -37,6 +36,7 @@ export default function TopBottom({ data }: Props) {
           },
         },
       ]}
+      //stylizing graph with colors and fonts
       useResizeHandler
       style={{ width: "100%", height: "100%" }}
       config={{ responsive: true, displayModeBar: false }}

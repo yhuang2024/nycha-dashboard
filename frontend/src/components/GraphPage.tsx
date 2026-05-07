@@ -17,6 +17,7 @@ interface GraphConfig {
   stats?: (data: NYCHARecord[]) => { label: string; value: string | number; suffix?: string}[]
 }
 
+//configuration for each graph page, including title, description, component, and statistics
 const configs: Record<string, GraphConfig> = {
   serviceIntensity: {
     title: "Service Access Inequality",
@@ -73,6 +74,7 @@ const configs: Record<string, GraphConfig> = {
   },
 }
 
+//graph page component that renders each component
 export default function GraphPage({ data }: GraphPageProps) {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -85,6 +87,7 @@ export default function GraphPage({ data }: GraphPageProps) {
 
   return (
     <div className="graph-page">
+      {/* back button to return to dashboard */}
       <button
         onClick={() => navigate("/")}
         className="back-button"
@@ -97,6 +100,7 @@ export default function GraphPage({ data }: GraphPageProps) {
         {page.description}
       </p>
 
+      {/* stats section */}
       {page.stats && (
         <div className="stat-row">
           {page.stats(data).map((s, i) => (
@@ -110,6 +114,7 @@ export default function GraphPage({ data }: GraphPageProps) {
         </div>
       )}
 
+      {/* graph itself */}
       <div className="graph-container">
         {page.component(data)}
       </div>

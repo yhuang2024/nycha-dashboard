@@ -6,6 +6,7 @@ interface Props {
   data: NYCHARecord[]
 }
 
+//funnel chart that shows job training pipeline outcomes across all NYCHA developments with exact numbers and percentages
 export default function PipelineFunnel({ data }: Props) {
   const sum = (key: keyof NYCHARecord) =>
     data.reduce((acc, d) => acc + (Number(d[key]) || 0), 0)
