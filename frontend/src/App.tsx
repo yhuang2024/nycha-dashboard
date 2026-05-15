@@ -32,7 +32,7 @@ export default function App() {
         path="/"
         element={
           <div style={{ padding: 20 }}>
-            <h1>Warning: No Service - An Analysis and Visualization of Unequal Social Service Distribution within NYCHA</h1>
+            <h1>Warning: No Service - An Analysis and Visualization of Unequal Social Service Distribution Within the New York City Housing Association (NYCHA)</h1>
             <p>
               This dashboard examines how access to social services varies across NYCHA developments and
               how those differences are related to workforce participation and economic mobility outcomes.

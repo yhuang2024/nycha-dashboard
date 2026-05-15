@@ -1,3 +1,4 @@
+//helper functions to load and normalize the NYCHA dataset
 import { NYCHASchema } from "./NYCHASchema"
 import type { NYCHARecord } from "./NYCHASchema"
 

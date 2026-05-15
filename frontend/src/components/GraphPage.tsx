@@ -26,7 +26,7 @@ const configs: Record<string, GraphConfig> = {
     component: (data) => <ServiceIntensityChart data={data} />,
     stats: () => {
       return [
-        { label: "% of Developments wtih No Services", value: 26.2 },
+        { label: "% of Developments with No Services", value: 26.2 },
         { label: "Weighted Services per Capita in Brooklyn", value: 0.014 },
         { label: "Weighted Services per Capita in the Bronx", value: 0.009 },
         { label: "Weighted Services per Capita in Manhattan", value: 0.011 },
