@@ -54,8 +54,8 @@
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1126px;
   margin: 0 auto;
   text-align: center;
   border-inline: 1px solid var(--border);
@@ -63,6 +63,7 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  padding: 0 16px;
 }
 
 body {
@@ -120,8 +121,8 @@ code {
 /* dashboard specific stylizing */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   width: 100%;
   margin-top: 20px;
 }
@@ -156,7 +157,8 @@ code {
   color: inherit;
   /* easing to make the transition less abrupt */
   transition: transform 0.25s ease, border-color 0.25s ease;
-  height: 420px;
+  min-height: 320px;
+  height: auto;
   display: flex; 
   flex-direction: column;
 }
@@ -241,7 +243,7 @@ code {
 /* displaying the stats in an ordered grid with 3 cards per row */
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(3, 220px);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   justify-content: center;
   gap: 16px;
   margin: 20px auto;
@@ -283,4 +285,22 @@ code {
 
 .back-button:hover {
   text-decoration: underline;
+}
+
+@media(max-width: 700px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-page {
+    padding: 16px;
+  }
+
+  .chart-card {
+    padding: 14px;
+  }
+
+  .chart-title {
+    font-size: 20px;
+  }
 }
