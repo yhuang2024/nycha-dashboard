@@ -121,8 +121,8 @@ code {
 /* dashboard specific stylizing */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
   width: 100%;
   margin-top: 20px;
 }
@@ -243,7 +243,7 @@ code {
 /* displaying the stats in an ordered grid with 3 cards per row */
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 220px);
   justify-content: center;
   gap: 16px;
   margin: 20px auto;
@@ -286,6 +286,7 @@ code {
 .back-button:hover {
   text-decoration: underline;
 }
+
 
 @media(max-width: 700px) {
   .stat-row {
