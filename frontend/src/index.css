@@ -158,7 +158,7 @@ code {
   /* easing to make the transition less abrupt */
   transition: transform 0.25s ease, border-color 0.25s ease;
   min-height: 320px;
-  height: auto;
+  height: 420px;
   display: flex; 
   flex-direction: column;
 }
@@ -291,6 +291,7 @@ code {
 @media(max-width: 700px) {
   .stat-row {
     grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 
   .graph-page {
@@ -299,9 +300,16 @@ code {
 
   .chart-card {
     padding: 14px;
+    height: auto;
+    min-height: 320px;
   }
 
   .chart-title {
     font-size: 20px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
   }
 }
