@@ -5,7 +5,7 @@ export default function NYCHAMap() {
       src="https://nycha.maps.arcgis.com/apps/webappviewer/index.html?id=5444a5413b2d4b84831d37553609619f"
       style={{
         width: "100%",
-        height: "100vh",
+        height: "100%",
         border: "none",
         display: "block",
       }}
