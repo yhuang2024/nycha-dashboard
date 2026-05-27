@@ -238,32 +238,6 @@ code {
   box-sizing: border-box;
 }
 
-@media (max-width: 320px) {
-  #root {
-    padding: 0 10px;
-  }
-
-  .graph-page {
-    padding: 16px 10px;
-  }
-
-  .graph-description {
-    font-size: 15px;
-  }
-
-  .stat-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 14px;
-    width: 100%;
-    margin: 18px auto;
-  }
-
-  .stat-card {
-    min-width: auto;
-    width: 100%;
-  }
-
   .chart-card {
     padding: 14px;
     height: auto;
@@ -283,7 +257,6 @@ code {
     font-size: 15px;
     gap: 4px;
   }
-}
 
 .graph-description {
   margin-top: 20px;
@@ -338,4 +311,31 @@ code {
 
 .back-button:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 320px) {
+  #root {
+    padding: 0 10px;
+  }
+
+  .graph-page {
+    padding: 16px 10px;
+  }
+
+  .graph-description {
+    font-size: 15px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    width: 100%;
+    margin: 18px auto;
+  }
+
+  .stat-card {
+    min-width: auto;
+    width: 100%;
+  }
 }
