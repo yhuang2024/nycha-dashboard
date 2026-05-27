@@ -243,6 +243,18 @@ code {
   white-space: pre-line;
 }
 
+.graph-container {
+  min-height: 420px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.graph-container iframe {
+  min-height: 420px;
+  height: 100%;
+  display: block;
+}
+
 /* displaying the stats in an ordered grid with 3 cards per row */
 .stat-row {
   display: grid;
