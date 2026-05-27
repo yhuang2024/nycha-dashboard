@@ -238,26 +238,6 @@ code {
   box-sizing: border-box;
 }
 
-  .chart-card {
-    padding: 14px;
-    height: auto;
-    min-height: 260px;
-  }
-
-  .chart-title {
-    font-size: 20px;
-  }
-
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .back-button {
-    font-size: 15px;
-    gap: 4px;
-  }
-
 .graph-description {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -337,5 +317,25 @@ code {
   .stat-card {
     min-width: auto;
     width: 100%;
+  }
+
+  .chart-card {
+    padding: 14px;
+    height: auto;
+    min-height: 260px;
+  }
+
+  .chart-title {
+    font-size: 20px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .back-button {
+    font-size: 15px;
+    gap: 4px;
   }
 }
