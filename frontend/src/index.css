@@ -293,7 +293,7 @@ code {
   text-decoration: underline;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 932px) {
   #root {
     padding: 0 10px;
   }
